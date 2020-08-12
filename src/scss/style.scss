@@ -1,0 +1,53 @@
+@import "./normalize.css";
+@import "./fonts.scss";
+
+@mixin input_style() {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  outline: none;
+  padding: 10px 12px;
+  &:focus {
+    border-color: #18a0fb;
+  }
+}
+
+.container {
+  max-width: 1366px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  font-family: "Inter";
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.sui-textfield {
+  &_disabled {
+    .sui-textfield__title {
+      color: #c4c4c4;
+    }
+  }
+  &__input {
+    @include input_style();
+    &:invalid {
+      border-color: #ff3e1d;
+      background: rgba(255, 62, 29, 0.06);
+      color: #ff3e1d;
+    }
+    &:disabled {
+      background: rgba(224, 224, 224, 0.3);
+    }
+  }
+}
+.sui-select {
+  &__items {
+    width: 190px;
+    @include input_style();
+  }
+  option:hover {
+    background-color: #e0e0e0;
+  }
+}
